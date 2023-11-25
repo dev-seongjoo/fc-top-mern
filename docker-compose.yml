@@ -17,3 +17,9 @@ services:
     ports:
       - "5050:5050"
 
+  client:
+    build:
+      context: ./client
+    ports:
+      - "80:3000"
+

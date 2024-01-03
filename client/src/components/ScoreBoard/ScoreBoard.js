@@ -3,6 +3,8 @@ import * as S from "./styled";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const ScoreBoard = ({ score, lp, recordEvent, results }) => {
   const navigate = useNavigate();
   const { match, quarter } = useParams();
@@ -37,7 +39,7 @@ const ScoreBoard = ({ score, lp, recordEvent, results }) => {
         setIsRecorded(true);
         setIsRecording(false);
 
-        await axios.post(`http://localhost:4000/record/${match}/${quarter}`, {
+        await axios.post(`${SERVER_BASE_URL}/record/${match}/${quarter}`, {
           results,
           time,
         });

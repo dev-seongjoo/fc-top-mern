@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import KakaoMap from "../../KakaoMap/KakaoMap";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const RtAttendance = () => {
   const { match } = useParams();
   const player = localStorage.getItem("player");
@@ -39,7 +41,7 @@ const RtAttendance = () => {
 
   const fetchLocationPosition = async () => {
     const position = await axios.get(
-      `http://localhost:4000/locationposition/${match}`
+      `${SERVER_BASE_URL}/locationposition/${match}`
     );
 
     setLocationPosition(position.data.LOCATION_POSITION);
@@ -48,7 +50,7 @@ const RtAttendance = () => {
   const fetchMatchStartTime = async () => {
     try {
       const matchData = await axios.get(
-        `http://localhost:4000/matchstarttime/${match}`
+        `${SERVER_BASE_URL}/matchstarttime/${match}`
       );
 
       const { DATE, DURATION, CHECK_LATE } = matchData.data;
@@ -64,7 +66,7 @@ const RtAttendance = () => {
   const fetchPlayerAttendance = async () => {
     try {
       const attendanceData = await axios.get(
-        `http://localhost:4000/attendance/${match}/${player}`
+        `${SERVER_BASE_URL}/attendance/${match}/${player}`
       );
 
       if (attendanceData.status === 200) {
@@ -108,7 +110,7 @@ const RtAttendance = () => {
 
   const handleAttendanceClick = async () => {
     const attendance = await axios.post(
-      `http://localhost:4000/attendance/${match}`,
+      `${SERVER_BASE_URL}/attendance/${match}`,
       { player, matchStartTime, checkLate }
     );
 

@@ -13,6 +13,8 @@ import {
   form343,
 } from "../../../utils/formations";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const StartingLineup = () => {
   const formations = {
     442: form442,
@@ -109,7 +111,7 @@ const StartingLineup = () => {
 
     alert("저장 완료되었습니다.");
 
-    await axios.post(`http://localhost:4000/starting/${match}/${quarter}`, {
+    await axios.post(`${SERVER_BASE_URL}/starting/${match}/${quarter}`, {
       match,
       quarter,
       selectedPlayer,
@@ -133,13 +135,13 @@ const StartingLineup = () => {
     const fetchVote = async () => {
       try {
         const voteResult = await axios.get(
-          `http://localhost:4000/voteresult/${match}`
+          `${SERVER_BASE_URL}/voteresult/${match}`
         );
         const playerName = voteResult.data.attendanceList.sort((a, b) =>
           a.localeCompare(b)
         );
         const playerInfoPromises = playerName.map((player) =>
-          axios.post("http://localhost:4000/playerInfo", { player })
+          axios.post(`${SERVER_BASE_URL}/playerInfo`, { player })
         );
 
         const playerInfos = await Promise.all(playerInfoPromises);
@@ -160,7 +162,7 @@ const StartingLineup = () => {
     const fetchLineup = async () => {
       try {
         const result = await axios.get(
-          `http://localhost:4000/starting/${match}/${quarter}`
+          `${SERVER_BASE_URL}/starting/${match}/${quarter}`
         );
         setCurrentFormation(result.data.formation);
 

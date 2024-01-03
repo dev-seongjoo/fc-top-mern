@@ -5,6 +5,8 @@ import * as S from "./styled";
 import axios from "axios";
 import { AuthContext } from "../../contexts/AuthContext";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const LoginPage = () => {
   const navigate = useNavigate();
 
@@ -53,7 +55,7 @@ const LoginPage = () => {
     // }
 
     axios
-      .post("http://localhost:4000/login", { id, password })
+      .post(`${SERVER_BASE_URL}/login`, { id, password })
       .then((res) => {
         localStorage.setItem("accessToken", res.data.accessToken);
         localStorage.setItem("player", JSON.stringify(res.data.player.ID));

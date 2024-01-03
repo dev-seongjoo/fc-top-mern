@@ -7,6 +7,8 @@ import Vote from "../../Vote/Vote";
 import VoteResult from "../../Vote/VoteResult/VoteResult";
 import { AuthContext } from "../../../contexts/AuthContext";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const ScheduleDetail = () => {
   const { userRole } = useContext(AuthContext); // 사용자 역할 정보 가져오기
 
@@ -23,9 +25,7 @@ const ScheduleDetail = () => {
     const fetchDataDetail = async () => {
       try {
         setIsLoading(true);
-        const result = await axios.get(
-          `http://localhost:4000/schedule/${match}`
-        );
+        const result = await axios.get(`${SERVER_BASE_URL}/schedule/${match}`);
         if (result === null) {
           console.log("데이터가 존재하지 않습니다.");
           return;
@@ -79,7 +79,7 @@ const ScheduleDetail = () => {
     if (window.confirm("정말로 삭제하시겠습니까?")) {
       try {
         const response = await axios.delete(
-          `http://localhost:4000/schedule/${match}`
+          `${SERVER_BASE_URL}/schedule/${match}`
         );
         console.log(response.data);
         navigate("/schedule");

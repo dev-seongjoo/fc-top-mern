@@ -1,8 +1,11 @@
 import { useContext, useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import * as S from "./styled";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
+
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
 
 const ScheduleList = () => {
   const { userRole } = useContext(AuthContext); // 사용자 역할 정보 가져오기
@@ -27,7 +30,7 @@ const ScheduleList = () => {
   const fetchData = async (month) => {
     try {
       const schedules = await axios.get(
-        `http://localhost:4000/schedule?month=${month}`
+        `${SERVER_BASE_URL}/schedule?month=${month}`
       );
 
       setSchedules(schedules.data);
@@ -56,7 +59,7 @@ const ScheduleList = () => {
       <S.Container>
         <S.DateContainer>
           <S.Select>
-            <S.Option value='2023'>2023</S.Option>
+            <S.Option value='2024'>2024</S.Option>
           </S.Select>
           <S.Year>년</S.Year>
           <S.Select value={selectedMonth} onChange={handleMonthSelect}>

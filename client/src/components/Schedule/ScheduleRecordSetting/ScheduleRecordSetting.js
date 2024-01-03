@@ -13,6 +13,8 @@ import {
   form343,
 } from "../../../utils/formations";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const ScheduleRecordSetting = () => {
   const [schedule, setSchedule] = useState({});
   const [quarter, setQuarter] = useState(0);
@@ -52,13 +54,13 @@ const ScheduleRecordSetting = () => {
   const fetchDataDetail = async () => {
     try {
       const selectedMatch = await axios.get(
-        `http://localhost:4000/schedule/${match}`
+        `${SERVER_BASE_URL}/schedule/${match}`
       );
 
       setSchedule(selectedMatch.data);
 
       const quarterRecords = await axios.get(
-        `http://localhost:4000/record/check/${match}`
+        `${SERVER_BASE_URL}/record/check/${match}`
       );
 
       const updatedQuarterRecord = { ...quarterRecord };
@@ -81,7 +83,7 @@ const ScheduleRecordSetting = () => {
     if (quarter !== 0) {
       try {
         const selectedQuarter = await axios.get(
-          `http://localhost:4000/starting/${match}/${quarter}`
+          `${SERVER_BASE_URL}/starting/${match}/${quarter}`
         );
         if (selectedQuarter) {
           setCurrentFormation(selectedQuarter.data.formation);

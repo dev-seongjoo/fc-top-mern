@@ -14,6 +14,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import KakaoMap from "../../KakaoMap/KakaoMap";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const ScheduleRegister = () => {
   const navigate = useNavigate();
 
@@ -88,7 +90,7 @@ const ScheduleRegister = () => {
         }));
 
         const response = await axios.post(
-          `http://localhost:4000/location/position`,
+          `${SERVER_BASE_URL}/location/position`,
           { value }
         );
 
@@ -145,7 +147,7 @@ const ScheduleRegister = () => {
     };
 
     axios
-      .post("http://localhost:4000/schedule/register", { adjustedFormData })
+      .post(`${SERVER_BASE_URL}/schedule/register`, { adjustedFormData })
       .then((res) => {
         console.log(res.data);
       });

@@ -15,6 +15,8 @@ import {
   form343,
 } from "../../../utils/formations";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const ScheduleRecord = () => {
   const { match, quarter } = useParams();
 
@@ -133,7 +135,7 @@ const ScheduleRecord = () => {
     const fetchQuarter = async (quarter) => {
       try {
         const selectedQuarter = await axios.get(
-          `http://localhost:4000/starting/${match}/${quarter}`
+          `${SERVER_BASE_URL}/starting/${match}/${quarter}`
         );
 
         if (selectedQuarter) {
@@ -182,13 +184,13 @@ const ScheduleRecord = () => {
     const fetchVote = async () => {
       try {
         const voteResult = await axios.get(
-          `http://localhost:4000/voteresult/${match}`
+          `${SERVER_BASE_URL}4000/voteresult/${match}`
         );
         const playerName = voteResult.data.attendanceList.sort((a, b) =>
           a.localeCompare(b)
         );
         const playerInfoPromises = playerName.map((player) =>
-          axios.post("http://localhost:4000/playerInfo", { player })
+          axios.post(`${SERVER_BASE_URL}/playerInfo`, { player })
         );
 
         const playerInfos = await Promise.all(playerInfoPromises);

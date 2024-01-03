@@ -6,6 +6,8 @@ import moment from "moment";
 import KakaoMap from "../../KakaoMap/KakaoMap";
 import { addHours } from "date-fns";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const ScheduleUpdate = () => {
   const navigate = useNavigate();
 
@@ -41,9 +43,7 @@ const ScheduleUpdate = () => {
     const fetchDataDetail = async () => {
       try {
         setIsLoading(true);
-        const result = await axios.get(
-          `http://localhost:4000/schedule/${match}`
-        );
+        const result = await axios.get(`${SERVER_BASE_URL}/schedule/${match}`);
         const timestamp = result.data.DATE;
         const date = moment(timestamp).format("YYYY/MM/DD h:mm A");
 
@@ -92,7 +92,7 @@ const ScheduleUpdate = () => {
 
         // 사용자가 선택한 위치의 좌표를 조회합니다.
         const response = await axios.post(
-          `http://localhost:4000/location/position`,
+          `${SERVER_BASE_URL}/location/position`,
           { value }
         );
 
@@ -172,7 +172,7 @@ const ScheduleUpdate = () => {
     };
 
     const response = await axios.put(
-      `http://localhost:4000/schedule/${match}`,
+      `${SERVER_BASE_URL}/schedule/${match}`,
       updatedFormData
     );
 

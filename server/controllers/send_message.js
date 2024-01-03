@@ -1,6 +1,8 @@
 const CryptoJS = require("crypto-js");
 const request = require("request");
 
+require("dotenv").config();
+
 function send_message(phone, AuthenticationCode) {
   const user_phone_number = phone; //수신 전화번호 기입
   let resultCode = 404;

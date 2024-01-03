@@ -42,12 +42,12 @@ const PersonalRank = () => {
           </S.TbodyTr>
           <S.TbodyTr>
             <S.RankTd>4위</S.RankTd>
-            <S.NameTd>김준경</S.NameTd>
+            <S.NameTd>홍철의</S.NameTd>
             <S.PointTd>66점</S.PointTd>
           </S.TbodyTr>
           <S.TbodyTr>
             <S.RankTd>5위</S.RankTd>
-            <S.NameTd>홍철의</S.NameTd>
+            <S.NameTd>최준영</S.NameTd>
             <S.PointTd>55점</S.PointTd>
           </S.TbodyTr>
         </S.Tbody>

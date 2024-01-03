@@ -60,7 +60,7 @@ const Navbar = () => {
                 <S.Menu to='/mypage'>마이페이지</S.Menu>
               </>
             )}
-            {/* <S.Menu to='/player'>선수단</S.Menu> */}
+            <S.Menu to='/player'>선수단</S.Menu>
             <S.Menu to='/schedule'>일정/결과</S.Menu>
             <S.Menu to='/record'>기록/순위</S.Menu>
           </S.MenuList>

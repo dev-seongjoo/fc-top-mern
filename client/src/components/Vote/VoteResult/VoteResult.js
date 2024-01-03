@@ -3,6 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const VoteResult = () => {
   const [list, setList] = useState({
     attendance: [],
@@ -16,7 +18,7 @@ const VoteResult = () => {
     const fetchVote = async () => {
       try {
         const voteResult = await axios.get(
-          `http://localhost:4000/voteresult/${match}`
+          `${SERVER_BASE_URL}/voteresult/${match}`
         );
 
         setList((prevList) => ({

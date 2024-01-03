@@ -2,16 +2,18 @@ import { useEffect, useState } from "react";
 import * as S from "./styled";
 import axios from "axios";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const Participation = () => {
   const [ranks, setRanks] = useState([]);
 
   const fetchParticipationData = async () => {
-    const rank = await axios.get("http://localhost:4000/allmatchcount");
+    const rank = await axios.get(`${SERVER_BASE_URL}/allmatchcount`);
     for (const player of rank.data) {
       player.match_count = player.starting_count + player.sub_count;
       const id = player.ID;
       const personalMatchInfo = await axios.post(
-        "http://localhost:4000/personalmatchinfo",
+        `${SERVER_BASE_URL}/personalmatchinfo`,
         {
           id,
         }

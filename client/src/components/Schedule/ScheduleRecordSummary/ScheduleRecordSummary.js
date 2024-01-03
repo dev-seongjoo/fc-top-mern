@@ -3,6 +3,8 @@ import * as S from "./styled";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const ScheduleRecordSummary = () => {
   const { match, quarter } = useParams();
 
@@ -13,19 +15,17 @@ const ScheduleRecordSummary = () => {
   const [lps, setLps] = useState([]);
 
   const fetchMatchInfo = async () => {
-    const matchInfo = await axios.get(
-      `http://localhost:4000/schedule/${match}`
-    );
+    const matchInfo = await axios.get(`${SERVER_BASE_URL}/schedule/${match}`);
     setOpponent(matchInfo.data.OPPONENT);
   };
 
   const fetchQuarterRecord = async () => {
     const quarterInfo = await axios.get(
-      `http://localhost:4000/schedule/${match}/${quarter}`
+      `${SERVER_BASE_URL}/schedule/${match}/${quarter}`
     );
 
     const quarterRecordInfo = await axios.get(
-      `http://localhost:4000/data/${match}/${quarter}`
+      `${SERVER_BASE_URL}/data/${match}/${quarter}`
     );
 
     setGoals(quarterRecordInfo.data.goals);

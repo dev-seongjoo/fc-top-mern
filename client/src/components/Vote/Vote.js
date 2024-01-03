@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import * as S from "./styled";
 import axios from "axios";
 
+const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+
 const Vote = () => {
   const [vote, setVote] = useState(null);
   const [countVote, setCountVote] = useState({
@@ -15,7 +17,7 @@ const Vote = () => {
   useEffect(() => {
     const fetchVote = async () => {
       try {
-        const votes = await axios.get(`http://localhost:4000/vote/${match}`);
+        const votes = await axios.get(`${SERVER_BASE_URL}/vote/${match}`);
 
         const playerId = JSON.parse(localStorage.getItem("player"));
 
@@ -54,7 +56,7 @@ const Vote = () => {
     }
     try {
       console.log(match, playerId, attendance);
-      await axios.post("http://localhost:4000/vote", {
+      await axios.post(`${SERVER_BASE_URL}/vote`, {
         match,
         playerId,
         attendance,

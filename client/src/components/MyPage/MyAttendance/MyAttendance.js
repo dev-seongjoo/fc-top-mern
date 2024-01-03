@@ -49,7 +49,7 @@ const MyAttendance = () => {
     <S.Container>
       <S.Title>출석</S.Title>
       <S.Select>
-        <S.Option>2023</S.Option>
+        <S.Option>2024</S.Option>
       </S.Select>
       <S.Table>
         <thead>

@@ -68,6 +68,7 @@ app.post("/checkId", async (req, res) => {
 // 휴대폰 중복 확인하기
 app.post("/checkPhoneDuplication", async (req, res) => {
   const phone = req.body.phone;
+
   try {
     const result = await Players.findOne({
       where: {
@@ -85,7 +86,6 @@ app.post("/checkPhoneDuplication", async (req, res) => {
 });
 
 app.post("/sms", (req, res) => {
-  console.log(req.body);
   const phone = req.body.phone;
   const code = req.body.authCode;
   send_message(phone, code);
@@ -101,20 +101,18 @@ app.post("/signUp", async (req, res) => {
 
     const newUser = await Players.create({
       LOGIN_ID: req.body.id,
-      PASSWORD: hashPassword,
-      KOR_NM: req.body.korLastName + req.body.korFirstName,
-      ENG_NM: req.body.engLastName + req.body.engFirstName,
-      PHONE: req.body.phone,
-      POSTCODE: req.body.postCode,
-      ADDRESS: req.body.address,
-      BIRTHDAY_YMD: birthday,
-      POSITION_FIRST: req.body.preferPositionFirst,
-      POSITION_SECOND: req.body.preferPositionSecond,
-      POSITION_THIRD: req.body.preferPositionThird,
-      FOOT: req.body.preferFoot,
+      // PASSWORD: hashPassword,
+      // KOR_NM: req.body.korLastName + req.body.korFirstName,
+      // ENG_NM: req.body.engLastName + req.body.engFirstName,
+      // PHONE: req.body.phone,
+      // POSTCODE: req.body.postCode,
+      // ADDRESS: req.body.address,
+      // BIRTHDAY_YMD: birthday,
+      // POSITION_FIRST: req.body.preferPositionFirst,
+      // POSITION_SECOND: req.body.preferPositionSecond,
+      // POSITION_THIRD: req.body.preferPositionThird,
+      // FOOT: req.body.preferFoot,
     });
-
-    console.log(newUser);
 
     return res.send("전송 완료");
   } catch (error) {

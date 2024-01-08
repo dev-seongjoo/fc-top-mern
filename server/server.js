@@ -30,7 +30,9 @@ const Subs = require("./models/subs");
 const Lps = require("./models/lps");
 const Attendances = require("./models/attendances");
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://fctop.shop',
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -47,7 +49,11 @@ const initialize = async () => {
 
 // 아이디 중복 확인하기
 app.post("/checkId", async (req, res) => {
+  console.log('aaa');
+
   const id = req.body.id;
+ 
+  console.log(id);
 
   try {
     const result = await Players.findOne({

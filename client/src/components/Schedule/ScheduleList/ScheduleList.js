@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-// import { useEffect, useState } from "react";
 import * as S from "./styled";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -116,9 +115,9 @@ const ScheduleList = () => {
             </S.MatchBox>
           ))
         )}
-        {userRole === "MASTER" || userRole === "CAPTAIN" ? (
+      {userRole === "MASTER" || userRole === "CAPTAIN" ? (
           <S.UploadBtn to='/schedule/register'>일정 등록</S.UploadBtn>
-        ) : null}
+      ) : null}
       </S.Container>
     </>
   );

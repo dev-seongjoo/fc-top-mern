@@ -30,9 +30,7 @@ const Subs = require("./models/subs");
 const Lps = require("./models/lps");
 const Attendances = require("./models/attendances");
 
-app.use(cors({
-  origin: 'http://fctop.shop',
-}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -49,11 +47,7 @@ const initialize = async () => {
 
 // 아이디 중복 확인하기
 app.post("/checkId", async (req, res) => {
-  console.log('aaa');
-
   const id = req.body.id;
- 
-  console.log(id);
 
   try {
     const result = await Players.findOne({
@@ -107,17 +101,17 @@ app.post("/signUp", async (req, res) => {
 
     const newUser = await Players.create({
       LOGIN_ID: req.body.id,
-      // PASSWORD: hashPassword,
-      // KOR_NM: req.body.korLastName + req.body.korFirstName,
-      // ENG_NM: req.body.engLastName + req.body.engFirstName,
-      // PHONE: req.body.phone,
-      // POSTCODE: req.body.postCode,
-      // ADDRESS: req.body.address,
-      // BIRTHDAY_YMD: birthday,
-      // POSITION_FIRST: req.body.preferPositionFirst,
-      // POSITION_SECOND: req.body.preferPositionSecond,
-      // POSITION_THIRD: req.body.preferPositionThird,
-      // FOOT: req.body.preferFoot,
+      PASSWORD: hashPassword,
+      KOR_NM: req.body.korLastName + req.body.korFirstName,
+      ENG_NM: req.body.engLastName + req.body.engFirstName,
+      PHONE: req.body.phone,
+      POSTCODE: req.body.postCode,
+      ADDRESS: req.body.address,
+      BIRTHDAY_YMD: birthday,
+      POSITION_FIRST: req.body.preferPositionFirst,
+      POSITION_SECOND: req.body.preferPositionSecond,
+      POSITION_THIRD: req.body.preferPositionThird,
+      FOOT: req.body.preferFoot,
     });
 
     return res.send("전송 완료");
@@ -138,11 +132,11 @@ app.post("/login", async (req, res) => {
       return;
     }
 
-    // const result = await bcrypt.compare(password, player.PASSWORD);
+    const result = await bcrypt.compare(password, player.PASSWORD);
 
-    // if (!result) {
-    //   return res.status(400).send("아이디 혹은 비밀번호가 잘못되었습니다.");
-    // }
+    if (!result) {
+      return res.status(400).send("아이디 혹은 비밀번호가 잘못되었습니다.");
+    }
 
     const accessToken = jwt.sign(
       { id: player.LOGIN_ID },
@@ -212,8 +206,10 @@ app.post("/schedule/register", async (req, res) => {
     const receivedDate = new Date(date);
     const timeZoneOffset = receivedDate.getTimezoneOffset();
     const convertedDate = new Date(
-      receivedDate.getTime() - timeZoneOffset * 60 * 1000
-    );
+      receivedDate.getTime() + timeZoneOffset * 60 * 1000
+    ); 
+  
+    console.log(convertedDate)
 
     await Matches.create({
       DATE: convertedDate,

@@ -6,7 +6,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: fctop
       MYSQL_DATABASE: fctop
-      # MYSQL_USER: root
       MYSQL_PASSWORD: fctop
     volumes:
       - ./db_data:/var/lib/mysql

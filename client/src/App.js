@@ -6,7 +6,7 @@ import "./App.css";
 
 import MainPage from "./pages/Main/Main";
 
-// import NoticePage from "./pages/Notice/NoticePage";
+import NoticePage from "./pages/Notice/NoticePage";
 
 import PlayerPage from "./pages/Player/PlayerPage";
 import PlayerAll from "./components/Player/PlayerAll/PlayerAll";
@@ -49,7 +49,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route exact path='/' element={<MainPage />} />
-          {/* <Route path='/notice' element={<NoticePage />} /> */}
+          // <Route path='/notice' element={<NoticePage />} />
           <Route path='/schedule/*' element={<SchedulePage />}>
             <Route index element={<ScheduleList />} />
             <Route path='register' element={<ScheduleRegister />} />
@@ -77,13 +77,13 @@ const App = () => {
             <Route path='participation' element={<Participation />} />
           </Route>
 
-          <Route path='/player/*' element={<PlayerPage />}>
+          /** <Route path='/player/*' element={<PlayerPage />}>
             <Route path='all' element={<PlayerAll />} />
             <Route path='fw' element={<Fw />} />
             <Route path='mf' element={<Mf />} />
             <Route path='df' element={<Df />} />
             <Route path='gk' element={<Gk />} />
-          </Route>
+          </Route> */
           <Route path='/signup' element={<SignUpPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/mypage/*' element={<MyPage />}>

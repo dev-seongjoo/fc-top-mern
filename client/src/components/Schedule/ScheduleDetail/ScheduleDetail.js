@@ -47,11 +47,13 @@ const ScheduleDetail = () => {
   const day = matchTime.getDate();
   const hour = matchTime.getHours();
   const duration = +schedule.DURATION;
+  
+  console.log(matchTime);
 
   const currentTime = new Date();
-  const voteEnabled =
-    currentTime.getTime() <
-    matchTime.getTime() - schedule.CHECK_LATE * 60 * 1000 - 30 * 60 * 1000;
+  const voteEnabled = true
+//    currentTime.getTime() <
+//    matchTime.getTime() - schedule.CHECK_LATE * 60 * 1000 - 30 * 60 * 1000;
 
   matchTime = `${year}년 ${month}월 ${day}일 오전 ${hour}시 - ${
     hour + duration

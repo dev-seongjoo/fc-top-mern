@@ -16,7 +16,7 @@ import {
   Opacity,
 } from "./styled";
 
-import bk from "../../../assets/bk.png";
+import sonny from "../../../assets/sonny.png";
 
 const Fw = () => {
   const dummyData = [
@@ -134,7 +134,7 @@ const Fw = () => {
                 <EngName>{data.engName}</EngName>
                 <Position>{data.position}</Position>
                 <ProfileImgContainer>
-                  <ProfileImg src={bk} />
+                  <ProfileImg src={sonny} />
                 </ProfileImgContainer>
               </CardFront>
               <CardBack>

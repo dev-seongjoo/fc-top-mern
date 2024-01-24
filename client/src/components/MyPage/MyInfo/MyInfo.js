@@ -12,18 +12,18 @@ const MyInfo = () => {
         </S.TitleRow>
         <S.Card>
           <S.Info>
-            <S.Year>2023 시즌</S.Year>
+            <S.Year>2024 시즌</S.Year>
             <S.InfoAttendanceGroup>
               <S.InfoContent>
                 <S.InfoTitle>출석 현황</S.InfoTitle>
                 <S.InfoDetailGroup>
                   <S.InfoDetail>
                     <S.InfoDetailKey>참석:</S.InfoDetailKey>
-                    18회
+                    3회
                   </S.InfoDetail>
                   <S.InfoDetail>
                     <S.InfoDetailKey>무단지각:</S.InfoDetailKey>
-                    2회
+                    0회
                   </S.InfoDetail>
                   <S.InfoDetail>
                     <S.InfoDetailKey>무단결석:</S.InfoDetailKey>
@@ -37,7 +37,7 @@ const MyInfo = () => {
               </S.InfoContent>
               <S.InfoContent>
                 <S.InfoTitle>출석 점수</S.InfoTitle>
-                <S.InfoBigChar>52점</S.InfoBigChar>
+                <S.InfoBigChar>9점</S.InfoBigChar>
               </S.InfoContent>
             </S.InfoAttendanceGroup>
           </S.Info>
@@ -50,11 +50,11 @@ const MyInfo = () => {
         </S.TitleRow>
         <S.Card>
           <S.Info>
-            <S.Year>2023 시즌</S.Year>
+            <S.Year>2024 시즌</S.Year>
             <S.InfoRecordGroup>
               <S.InfoContent>
                 <S.InfoTitle>출전</S.InfoTitle>
-                <S.InfoBigChar>30경기</S.InfoBigChar>
+                <S.InfoBigChar>3경기</S.InfoBigChar>
               </S.InfoContent>
               <S.InfoContent>
                 <S.InfoTitle>득점</S.InfoTitle>

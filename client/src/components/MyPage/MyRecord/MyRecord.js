@@ -20,7 +20,7 @@ const MyRecord = () => {
   const dummyData = [
     {
       id: 1,
-      matchDate: "2023/07/01",
+      matchDate: "2024/01/06",
       opponent: "FC AAA",
       voting: "참석",
       attendanceLimit: "06:30",
@@ -29,39 +29,21 @@ const MyRecord = () => {
     },
     {
       id: 2,
-      matchDate: "2023/07/08",
+      matchDate: "2024/01/13",
       opponent: "FC BBB",
       voting: "불참석",
       attendanceLimit: "06:30",
-      attendanceTime: "정보 없음",
+      attendanceTime: "06:20",
       attendanceStatus: "인정 결석",
     },
     {
       id: 3,
-      matchDate: "2023/07/15",
+      matchDate: "2024/01/20",
       opponent: "FC CCC",
       voting: "참석",
       attendanceLimit: "06:30",
       attendanceTime: "06:33",
       attendanceStatus: "무단 지각",
-    },
-    {
-      id: 4,
-      matchDate: "2023/07/22",
-      opponent: "FC DDD",
-      voting: "참석",
-      attendanceLimit: "06:30",
-      attendanceTime: "정보 없음",
-      attendanceStatus: "무단 결석",
-    },
-    {
-      id: 5,
-      matchDate: "2023/07/29",
-      opponent: "FC EEE",
-      voting: "참석",
-      attendanceLimit: "06:30",
-      attendanceTime: "07:00",
-      attendanceStatus: "인정 지각",
     },
   ];
 
@@ -69,7 +51,7 @@ const MyRecord = () => {
     <S.Container>
       <S.Title>경기 기록</S.Title>
       <S.Select>
-        <S.Option>2023</S.Option>
+        <S.Option>2024</S.Option>
       </S.Select>
       <S.MainTable>
         <thead>

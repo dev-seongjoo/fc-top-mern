@@ -4,7 +4,8 @@ import * as S from "./styled";
 const MyAttendance = () => {
   const dummyData = [
     {
-      matchDate: "2023/07/01",
+      id: 1,
+      matchDate: "2024/01/06",
       opponent: "FC AAA",
       voting: "참석",
       attendanceLimit: "06:30",
@@ -12,36 +13,22 @@ const MyAttendance = () => {
       attendanceStatus: "출석",
     },
     {
-      matchDate: "2023/07/08",
+      id: 2,
+      matchDate: "2024/01/13",
       opponent: "FC BBB",
       voting: "불참석",
       attendanceLimit: "06:30",
-      attendanceTime: "정보 없음",
-      attendanceStatus: "결석",
+      attendanceTime: "06:20",
+      attendanceStatus: "인정 결석",
     },
     {
-      matchDate: "2023/07/15",
+      id: 3,
+      matchDate: "2024/01/20",
       opponent: "FC CCC",
       voting: "참석",
       attendanceLimit: "06:30",
       attendanceTime: "06:33",
-      attendanceStatus: "지각",
-    },
-    {
-      matchDate: "2023/07/22",
-      opponent: "FC DDD",
-      voting: "참석",
-      attendanceLimit: "06:30",
-      attendanceTime: "정보 없음",
-      attendanceStatus: "결석",
-    },
-    {
-      matchDate: "2023/07/29",
-      opponent: "FC EEE",
-      voting: "참석",
-      attendanceLimit: "06:30",
-      attendanceTime: "07:00",
-      attendanceStatus: "지각",
+      attendanceStatus: "무단 지각",
     },
   ];
 

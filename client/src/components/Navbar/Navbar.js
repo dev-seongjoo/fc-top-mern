@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <>
       <S.NavContainer>
-        <S.ArrowBack
+        {/* <S.ArrowBack
           className='material-symbols-outlined'
           onClick={() => navigate(-1)}
           style={{
@@ -37,7 +37,7 @@ const Navbar = () => {
           }}
         >
           arrow_back_ios
-        </S.ArrowBack>
+        </S.ArrowBack> */}
         <S.Logo>
           <S.LogoImg onClick={handleLogoClick} src={logo} alt='logo' />
         </S.Logo>

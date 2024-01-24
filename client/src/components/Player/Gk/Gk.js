@@ -81,9 +81,6 @@ const Gk = () => {
                     <BackProfileInfo>
                       입단 일자: {data.enrollment}
                     </BackProfileInfo>
-                    <BackProfileInfo>MT 참가 횟수: 3번</BackProfileInfo>
-                    <BackProfileInfo>작년 MT 참가 여부: 불참</BackProfileInfo>
-                    <BackProfileInfo>현재 회원 등급: 비회원</BackProfileInfo>
                   </CardBackContainer>
                 </Opacity>
               </CardBack>

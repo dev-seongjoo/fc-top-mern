@@ -41,19 +41,19 @@ const ScheduleDetail = () => {
     fetchDataDetail();
   }, []);
 
-  let matchTime = new Date(schedule.DATE);
+  let serverTime = new Date(schedule.DATE);
+  let matchTime = new Date(serverTime.getTime() + 9 * 60 * 60 * 1000);
+
   const year = matchTime.getFullYear();
   const month = matchTime.getMonth() + 1;
   const day = matchTime.getDate();
   const hour = matchTime.getHours();
   const duration = +schedule.DURATION;
-  
-  console.log(matchTime);
 
   const currentTime = new Date();
-  const voteEnabled = true
-//    currentTime.getTime() <
-//    matchTime.getTime() - schedule.CHECK_LATE * 60 * 1000 - 30 * 60 * 1000;
+  const voteEnabled =
+    currentTime.getTime() <
+    matchTime.getTime() - schedule.CHECK_LATE * 60 * 1000 - 30 * 60 * 1000;
 
   matchTime = `${year}년 ${month}월 ${day}일 오전 ${hour}시 - ${
     hour + duration

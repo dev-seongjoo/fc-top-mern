@@ -204,15 +204,11 @@ app.post("/schedule/register", async (req, res) => {
     } = req.body.adjustedFormData;
 
     const receivedDate = new Date(date);
-    const timeZoneOffset = receivedDate.getTimezoneOffset();
-    const convertedDate = new Date(
-      receivedDate.getTime() + timeZoneOffset * 60 * 1000
-    );
 
-    console.log(convertedDate);
+    console.log(receivedDate);
 
     await Matches.create({
-      DATE: convertedDate,
+      DATE: receivedDate,
       DURATION: duration,
       CHECK_LATE: checkLate,
       LOCATION: location,

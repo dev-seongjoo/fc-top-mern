@@ -36,7 +36,7 @@ const Participation = () => {
       <S.Title>선수별 기록</S.Title>
       <S.Container>
         <S.Select>
-          <S.Option>2023</S.Option>
+          <S.Option>2024</S.Option>
         </S.Select>
         <S.Table>
           <thead>

@@ -100,12 +100,15 @@ const ScheduleRecordSetting = () => {
   }, [quarter]);
 
   let date = new Date(schedule.DATE);
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  const hour = date.getHours();
+  let matchDate = new Date(date.getTime() + 9 * 60 * 60 * 1000);
+  const year = matchDate.getFullYear();
+  const month = matchDate.getMonth() + 1;
+  const day = matchDate.getDate();
+  const hour = matchDate.getHours();
   const duration = +schedule.DURATION;
-  date = `${year}년 ${month}월 ${day}일 오전 ${hour}시 - ${hour + duration}시`;
+  matchDate = `${year}년 ${month}월 ${day}일 오전 ${hour}시 - ${
+    hour + duration
+  }시`;
 
   return (
     <>
@@ -114,7 +117,7 @@ const ScheduleRecordSetting = () => {
       <S.Container>
         <S.LabelWrapper>
           <S.Label>일시</S.Label>
-          <S.InfoBox>{date}</S.InfoBox>
+          <S.InfoBox>{matchDate}</S.InfoBox>
         </S.LabelWrapper>
         <S.LabelWrapper>
           <S.Label>상대</S.Label>

@@ -77,10 +77,18 @@ const ScheduleList = () => {
             <S.MatchBox key={schedule.ID} to={`/schedule/${schedule.ID}`}>
               <S.MatchCalendar>
                 <S.MatchDate>
-                  {new Date(schedule.DATE).toLocaleDateString()}
+                  {new Date(
+                    new Date(schedule.DATE).getTime() + 9 * 60 * 60 * 1000
+                  ).toLocaleString(undefined, {
+                    year: "numeric",
+                    month: "numeric",
+                    day: "numeric",
+                  })}
                 </S.MatchDate>
                 <S.MatchTime>
-                  {new Date(schedule.DATE).toLocaleTimeString([], {
+                  {new Date(
+                    new Date(schedule.DATE).getTime() + 9 * 60 * 60 * 1000
+                  ).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
                     hour12: false,
@@ -115,9 +123,9 @@ const ScheduleList = () => {
             </S.MatchBox>
           ))
         )}
-      {userRole === "MASTER" || userRole === "CAPTAIN" ? (
+        {userRole === "MASTER" || userRole === "CAPTAIN" ? (
           <S.UploadBtn to='/schedule/register'>일정 등록</S.UploadBtn>
-      ) : null}
+        ) : null}
       </S.Container>
     </>
   );

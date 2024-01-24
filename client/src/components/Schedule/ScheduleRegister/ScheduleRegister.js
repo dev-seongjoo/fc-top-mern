@@ -52,6 +52,8 @@ const ScheduleRegister = () => {
     notes: "",
   });
 
+  console.log(formData.date);
+
   const handleFocus = (field) => {
     setIsFocused((prevIsFocused) => ({
       ...prevIsFocused,

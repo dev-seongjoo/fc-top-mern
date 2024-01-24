@@ -14,7 +14,7 @@ const FutureMatch = () => {
           </S.SearchBtnRight>
         </S.SearachBtnGroup>
       </S.TitleRow>
-      <S.Date>2024.01.06(토) 07:00</S.Date>
+      <S.Date>2024.01.27(토) 07:00</S.Date>
       <S.Location>운정체육공원</S.Location>
       <S.ScoreGroup>
         <S.HomeTeam>FC TOP</S.HomeTeam>

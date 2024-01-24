@@ -7,7 +7,7 @@ const PastMatch = () => {
         <S.Title>지난 경기</S.Title>
         <S.SearchBtn>자세히 보기</S.SearchBtn>
       </S.TitleRow>
-      <S.Date>2023.12.30(토)</S.Date>
+      <S.Date>2024.01.20(토)</S.Date>
       <S.ScoreGroup>
         <S.HomeTeamGroup>
           <S.HomeTeam>FC TOP</S.HomeTeam>

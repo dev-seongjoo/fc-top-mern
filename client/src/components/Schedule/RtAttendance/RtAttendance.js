@@ -154,7 +154,10 @@ const RtAttendance = () => {
   const attendanceTimeHours = matchStartTime
     ? formatTwoDigits(
         new Date(
-          matchStartTime.getTime() - checkLate * 60 * 1000 - 30 * 60 * 1000
+          matchStartTime.getTime() +
+            9 * 60 * 60 * 1000 -
+            checkLate * 60 * 1000 -
+            30 * 60 * 1000
         ).getHours()
       )
     : null;
@@ -162,31 +165,44 @@ const RtAttendance = () => {
   const attendanceTimeMinutes = matchStartTime
     ? formatTwoDigits(
         new Date(
-          matchStartTime.getTime() - checkLate * 60 * 1000 - 30 * 60 * 1000
+          matchStartTime.getTime() +
+            9 * 60 * 60 * 1000 -
+            checkLate * 60 * 1000 -
+            30 * 60 * 1000
         ).getMinutes()
       )
     : null;
 
   const lateStandardHours = matchStartTime
     ? formatTwoDigits(
-        new Date(matchStartTime.getTime() - checkLate * 60 * 1000).getHours()
+        new Date(
+          matchStartTime.getTime() + 9 * 60 * 60 * 1000 - checkLate * 60 * 1000
+        ).getHours()
       )
     : null;
 
   const lateStandardMinutes = matchStartTime
     ? formatTwoDigits(
-        new Date(matchStartTime.getTime() - checkLate * 60 * 1000).getMinutes()
+        new Date(
+          matchStartTime.getTime() + 9 * 60 * 60 * 1000 - checkLate * 60 * 1000
+        ).getMinutes()
       )
     : null;
 
   const matchEndTimePlusDuration = matchStartTime
-    ? new Date(matchStartTime.getTime() + duration * 60 * 60 * 1000)
+    ? new Date(
+        matchStartTime.getTime() +
+          9 * 60 * 60 * 1000 +
+          duration * 60 * 60 * 1000
+      )
     : null;
 
   const matchStartTimePlusDurationHours = matchStartTime
     ? formatTwoDigits(
         new Date(
-          matchStartTime.getTime() + duration * 60 * 60 * 1000
+          matchStartTime.getTime() +
+            9 * 60 * 60 * 1000 +
+            duration * 60 * 60 * 1000
         ).getHours()
       )
     : null;
@@ -194,7 +210,9 @@ const RtAttendance = () => {
   const matchStartTimePlusDurationMinutes = matchStartTime
     ? formatTwoDigits(
         new Date(
-          matchStartTime.getTime() + duration * 60 * 60 * 1000
+          matchStartTime.getTime() +
+            9 * 60 * 60 * 1000 +
+            duration * 60 * 60 * 1000
         ).getMinutes()
       )
     : null;
@@ -202,7 +220,10 @@ const RtAttendance = () => {
   const isAttendanceEnabled =
     matchStartTime &&
     now.getTime() >=
-      matchStartTime.getTime() - checkLate * 60 * 1000 - 30 * 60 * 1000 &&
+      matchStartTime.getTime() +
+        9 * 60 * 60 * 1000 -
+        checkLate * 60 * 1000 -
+        30 * 60 * 1000 &&
     now.getTime() <= matchEndTimePlusDuration.getTime() &&
     !isDistanceExceeded;
 

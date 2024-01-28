@@ -55,9 +55,7 @@ const ScheduleDetail = () => {
     currentTime.getTime() <
     matchTime.getTime() - schedule.CHECK_LATE * 60 * 1000 - 30 * 60 * 1000;
 
-  matchTime = `${year}년 ${month}월 ${day}일 오전 ${hour}시 - ${
-    hour + duration
-  }시`;
+  matchTime = `${year}년 ${month}월 ${day}일 ${hour}시 - ${hour + duration}시`;
   const checkLate = `오전 ${hour - 1}시 ${60 - schedule.CHECK_LATE}분 이후`;
 
   const onAddressUpdate = (newAddress) => {

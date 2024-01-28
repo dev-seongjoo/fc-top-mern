@@ -34,7 +34,7 @@ const MyRecord = () => {
       voting: "불참석",
       attendanceLimit: "06:30",
       attendanceTime: "06:20",
-      attendanceStatus: "인정 결석",
+      attendanceStatus: "출석",
     },
     {
       id: 3,

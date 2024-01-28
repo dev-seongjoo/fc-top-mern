@@ -166,8 +166,6 @@ const StartingLineup = () => {
         );
         setCurrentFormation(result.data.formation);
 
-        console.log(result);
-
         let newSelectedPlayers = {
           player1: ["", ""],
           player2: ["", ""],

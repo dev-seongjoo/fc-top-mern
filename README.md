@@ -51,6 +51,7 @@ BE - 김성주
 - 참석/불참석 투표, 한눈에 참석/불참석/미투표 확인
 
 ![모임위치 지정](https://github.com/dev-seongjoo/fc-top-mern/assets/109133448/a83c79a8-ac3d-4fff-945a-cc8cabdce604)
+![일정 디테일](https://github.com/dev-seongjoo/fc-top-mern/assets/109133448/532bd76c-9f66-4d4d-b500-d6660b15ba34)
 ![투표 현황](https://github.com/dev-seongjoo/fc-top-mern/assets/109133448/b0811173-4cc2-437f-8001-054c55721933)
 
 
